@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Airstream style trailer illustration">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f1"/><stop offset="1" stop-color="#dbe3e0"/></linearGradient>
+ <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#f6f8f9"/><stop offset="0.28" stop-color="#c9d0d4"/>
+   <stop offset="0.5" stop-color="#f2f5f6"/><stop offset="0.72" stop-color="#a9b2b8"/><stop offset="1" stop-color="#8b949a"/>
+ </linearGradient>
+ <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3b42"/><stop offset="1" stop-color="#14232a"/></linearGradient>
+ <radialGradient id="sh" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#000" stop-opacity="0.22"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="480" height="360" fill="url(#bg)"/>
+<ellipse cx="240.0" cy="287.0" rx="199.64" ry="18" fill="url(#sh)"/>
+<!-- hitch -->
+<path d="M 87.0 190 L 37.0 216 L 87.0 216 Z" fill="#9aa3a8"/>
+<circle cx="37.0" cy="216" r="5" fill="#7d868b"/>
+<!-- body -->
+<rect x="79.0" y="121.0" width="322" height="150" rx="75.0" fill="url(#body)" stroke="#93a0a6" stroke-width="1.5"/>
+<!-- specular highlight -->
+<rect x="87.0" y="137.0" width="306" height="10" rx="5" fill="#ffffff" opacity="0.55"/>
+<!-- window strip -->
+<rect x="175.6" y="151.0" width="141.68" height="34" rx="10" fill="url(#glass)" opacity="0.92"/>
+<!-- serving hatch awning -->
+<rect x="175.6" y="191.0" width="141.68" height="30" rx="6" fill="#0d1f16" opacity="0.16"/>
+<!-- roof vents -->
+<rect x="206.0" y="113.0" width="16" height="10" rx="4" fill="#c2cace"/>
+<rect x="258.0" y="113.0" width="16" height="10" rx="4" fill="#c2cace"/>
+<!-- wheels -->
+<circle cx="188.48000000000002" cy="265.0" r="26" fill="#20272b"/><circle cx="188.48000000000002" cy="265.0" r="12" fill="#aeb7bd"/>
+<circle cx="272.2" cy="265.0" r="26" fill="#20272b"/><circle cx="272.2" cy="265.0" r="12" fill="#aeb7bd"/>
+<text x="240.0" y="336" text-anchor="middle" font-family="Poppins,Segoe UI,sans-serif" font-size="26" font-weight="800" fill="#103d2a" opacity="0.9">5m</text>
+</svg>

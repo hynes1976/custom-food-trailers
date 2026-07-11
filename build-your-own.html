@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Build Your Own Food Trailer | Custom Food Trailers</title>
+  <meta name="description" content="Design your perfect custom food trailer. Choose size, colour and equipment. Gas or electric cooking, fridges, ovens and more. Get a quote today!" />
+  <meta name="keywords" content="build a food trailer, food trailer configurator, custom food trailer builder, food trailer price calculator, food trailer finance" />
+  <link rel="canonical" href="https://www.customfoodtrailers.co.uk/build-your-own" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#103d2a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Build Your Own Food Trailer | Custom Food Trailers" />
+  <meta property="og:description" content="Design your perfect custom food trailer. Choose size, colour and equipment and get a quote today." />
+  <meta property="og:url" content="https://www.customfoodtrailers.co.uk/build-your-own" />
+  <meta property="og:image" content="https://cdn.prod.website-files.com/690239bf754659adf595da91/6942dcfb75027db8f1d7bda8_5M.png" />
+  <style>
+    .builder { display:grid; grid-template-columns: 1.5fr 1fr; gap:34px; align-items:start; }
+    .opt-group { margin-bottom:28px; }
+    .opt-group h3 { font-size:1.05rem; margin-bottom:12px; }
+    .opt-row { display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap:12px; }
+    .opt-row.cols-2 { grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); }
+    .opt { border:1px solid var(--line); border-radius:12px; padding:13px 14px; cursor:pointer; background:#fff; transition:.15s; display:flex; justify-content:space-between; align-items:center; gap:8px; }
+    .opt:hover { border-color:var(--green-bright); }
+    .opt.sel { border-color:var(--green); background:rgba(28,107,67,.06); box-shadow:0 0 0 2px rgba(28,107,67,.18); }
+    .opt .o-name { font-weight:600; color:var(--green-deep); font-size:.92rem; }
+    .opt .o-price { font-size:.8rem; color:var(--muted); white-space:nowrap; }
+    .summary { position:sticky; top:104px; }
+    .summary .total { font-size:2.3rem; font-weight:800; color:var(--green); }
+    .summary ul { list-style:none; margin:14px 0; max-height:280px; overflow:auto; }
+    .summary li { display:flex; justify-content:space-between; gap:10px; padding:7px 0; border-bottom:1px solid var(--line); font-size:.88rem; }
+    .summary li span:last-child { font-weight:600; color:var(--green-deep); white-space:nowrap; }
+    @media (max-width:900px){ .builder{ grid-template-columns:1fr; } .summary{ position:static; } }
+  </style>
+</head>
+<body data-page="build">
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Home</a> / Build Your Own Trailer</p>
+      <h1>Build Your Own Food Trailer</h1>
+      <p>Choose your size, colour and equipment and see a live price. When you're happy, send it to us for a formal quote, finance available.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container builder">
+      <form id="builderForm" data-contact>
+        <div class="opt-group">
+          <h3>Trailer Size</h3>
+          <div class="opt-row" data-single data-name="Size">
+            <label class="opt sel" data-price="14950"><input type="radio" name="size" hidden checked value="3M"><span class="o-name">3M</span><span class="o-price">£14,950</span></label>
+            <label class="opt" data-price="15950"><input type="radio" name="size" hidden value="3.5M"><span class="o-name">3.5M</span><span class="o-price">£15,950</span></label>
+            <label class="opt" data-price="16950"><input type="radio" name="size" hidden value="4M"><span class="o-name">4M</span><span class="o-price">£16,950</span></label>
+            <label class="opt" data-price="17950"><input type="radio" name="size" hidden value="4.5M"><span class="o-name">4.5M</span><span class="o-price">£17,950</span></label>
+            <label class="opt" data-price="18950"><input type="radio" name="size" hidden value="5M"><span class="o-name">5M</span><span class="o-price">£18,950</span></label>
+            <label class="opt" data-price="20500"><input type="radio" name="size" hidden value="6M"><span class="o-name">6M</span><span class="o-price">£20,500</span></label>
+            <label class="opt" data-price="21950"><input type="radio" name="size" hidden value="7M"><span class="o-name">7M</span><span class="o-price">£21,950</span></label>
+          </div>
+        </div>
+
+        <div class="opt-group">
+          <h3>Colour</h3>
+          <div class="opt-row" data-single data-name="Colour">
+            <label class="opt sel" data-price="0"><input type="radio" name="colour" hidden checked value="Silver"><span class="o-name">Silver</span><span class="o-price">included</span></label>
+            <label class="opt" data-price="2200"><input type="radio" name="colour" hidden value="Gold"><span class="o-name">Gold</span><span class="o-price">+£2,200</span></label>
+            <label class="opt" data-price="2200"><input type="radio" name="colour" hidden value="Rose Gold"><span class="o-name">Rose Gold</span><span class="o-price">+£2,200</span></label>
+            <label class="opt" data-price="1200"><input type="radio" name="colour" hidden value="Painted"><span class="o-name">Painted</span><span class="o-price">+£1,200</span></label>
+          </div>
+        </div>
+
+        <div class="opt-group">
+          <h3>Options</h3>
+          <div class="opt-row cols-2" data-name="Options">
+            <label class="opt" data-price="1200"><input type="checkbox" name="opt" hidden value="Retractable Roof Top LED Signage"><span class="o-name">Retractable Roof Top LED Signage</span><span class="o-price">+£1,200</span></label>
+            <label class="opt" data-price="950"><input type="checkbox" name="opt" hidden value="Airconditioning unit"><span class="o-name">Airconditioning unit</span><span class="o-price">+£950</span></label>
+            <label class="opt" data-price="450"><input type="checkbox" name="opt" hidden value="Gas Cooking Griddles"><span class="o-name">Gas Cooking Griddles</span><span class="o-price">+£450</span></label>
+            <label class="opt" data-price="480"><input type="checkbox" name="opt" hidden value="Electric Cooking Griddles"><span class="o-name">Electric Cooking Griddles</span><span class="o-price">+£480</span></label>
+            <label class="opt" data-price="320"><input type="checkbox" name="opt" hidden value="Gas Stove, 2 Burners"><span class="o-name">Gas Stove, 2 Burners</span><span class="o-price">+£320</span></label>
+            <label class="opt" data-price="360"><input type="checkbox" name="opt" hidden value="Electric Induction Stove, 2 Plates"><span class="o-name">Electric Induction Stove, 2 Plates</span><span class="o-price">+£360</span></label>
+            <label class="opt" data-price="520"><input type="checkbox" name="opt" hidden value="Gas Oven"><span class="o-name">Gas Oven</span><span class="o-price">+£520</span></label>
+            <label class="opt" data-price="620"><input type="checkbox" name="opt" hidden value="Electric Convection Oven"><span class="o-name">Electric Convection Oven</span><span class="o-price">+£620</span></label>
+            <label class="opt" data-price="380"><input type="checkbox" name="opt" hidden value="Gas Deep Fryer, 1 Tank"><span class="o-name">Gas Deep Fryer, 1 Tank</span><span class="o-price">+£380</span></label>
+            <label class="opt" data-price="400"><input type="checkbox" name="opt" hidden value="Electric Deep Fryer, 1 Tank"><span class="o-name">Electric Deep Fryer, 1 Tank</span><span class="o-price">+£400</span></label>
+            <label class="opt" data-price="620"><input type="checkbox" name="opt" hidden value="Gas Deep Fryer, 2 Tanks"><span class="o-name">Gas Deep Fryer, 2 Tanks</span><span class="o-price">+£620</span></label>
+            <label class="opt" data-price="660"><input type="checkbox" name="opt" hidden value="Electric Deep Fryer, 2 Tanks"><span class="o-name">Electric Deep Fryer, 2 Tanks</span><span class="o-price">+£660</span></label>
+            <label class="opt" data-price="280"><input type="checkbox" name="opt" hidden value="Commercial Microwave Oven"><span class="o-name">Commercial Microwave Oven</span><span class="o-price">+£280</span></label>
+            <label class="opt" data-price="340"><input type="checkbox" name="opt" hidden value="Electric Bain Marie, 3 pans"><span class="o-name">Electric Bain Marie, 3 pans</span><span class="o-price">+£340</span></label>
+            <label class="opt" data-price="520"><input type="checkbox" name="opt" hidden value="Electric Bain Marie, 6 pans"><span class="o-name">Electric Bain Marie, 6 pans</span><span class="o-price">+£520</span></label>
+            <label class="opt" data-price="480"><input type="checkbox" name="opt" hidden value="Beverage Display Fridge, 150 L"><span class="o-name">Beverage Display Fridge, 150 L</span><span class="o-price">+£480</span></label>
+            <label class="opt" data-price="640"><input type="checkbox" name="opt" hidden value="Beverage Display Fridge, 260 L"><span class="o-name">Beverage Display Fridge, 260 L</span><span class="o-price">+£640</span></label>
+            <label class="opt" data-price="900"><input type="checkbox" name="opt" hidden value="Custom Vinyl Wraps"><span class="o-name">Custom Vinyl Wraps</span><span class="o-price">+£900</span></label>
+            <label class="opt" data-price="200"><input type="checkbox" name="opt" hidden value="Cooking Extraction"><span class="o-name">Cooking Extraction</span><span class="o-price">+£200/m</span></label>
+          </div>
+        </div>
+
+        <div class="opt-group">
+          <h3>Your details</h3>
+          <div class="form" style="box-shadow:none;padding:0;border:0">
+            <div class="field"><label for="bname">Name</label><input id="bname" name="name" required></div>
+            <div class="field"><label for="bemail">Email</label><input id="bemail" type="email" name="email" required></div>
+            <div class="field"><label for="bphone">Phone</label><input id="bphone" name="phone"></div>
+            <div class="field"><label for="bnotes">Anything else? (menu, pitch, timescale)</label><textarea id="bnotes" name="notes"></textarea></div>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          </div>
+        </div>
+      </form>
+
+      <aside class="summary card" style="padding:26px">
+        <p class="eyebrow">Total</p>
+        <div class="total" id="total">£14,950</div>
+        <p class="note" style="color:var(--muted);font-size:.82rem">Indicative price in the specification shown. Your formal quote is confirmed by our team.</p>
+        <ul id="breakdown"></ul>
+        <button type="submit" form="builderForm" class="btn btn--amber btn--block btn--lg">Get My Quote</button>
+        <p class="form-status" style="text-align:center"></p>
+        <p class="note" style="text-align:center;margin-top:10px">Prefer to talk? <a href="tel:+447826551503">07826 551 503</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FINANCING -->
+  <section class="section section--green">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Financing</p>
+        <h2 style="color:#fff">Finance your food trailer</h2>
+        <p style="color:#cfe6d8">Simple, quick and easy. Finance subject to status. Submit your details to start your finance application.</p>
+        <ul style="list-style:none;margin-top:18px;display:grid;gap:10px;color:#eaf5ee">
+          <li>✓ Spread the cost with fixed monthly payments</li>
+          <li>✓ Startups welcome</li>
+          <li>✓ Decisions in hours, funds in days</li>
+          <li>✓ From just 7.9% APR (representative)</li>
+        </ul>
+      </div>
+      <form class="form" data-contact>
+        <div class="field"><label for="fname">Name</label><input id="fname" name="name" required></div>
+        <div class="field"><label for="femail">Email</label><input id="femail" type="email" name="email" required></div>
+        <div class="field"><label for="fphone">Phone</label><input id="fphone" name="phone"></div>
+        <div class="field"><label for="famount">Approximate trailer budget</label><input id="famount" name="budget" placeholder="e.g. £18,000"></div>
+        <div class="field"><label for="fmsg">Anything else?</label><textarea id="fmsg" name="message"></textarea></div>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <input type="hidden" name="enquiry_type" value="Finance application">
+        <button type="submit" class="btn btn--amber btn--block btn--lg">Start My Finance Application</button>
+        <p class="form-status"></p>
+        <p class="note" style="color:#a9ccb8">Finance is subject to status and affordability checks. Representative example available on request.</p>
+      </form>
+    </div>
+  </section>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+  (function(){
+    var form = document.getElementById('builderForm');
+    var totalEl = document.getElementById('total');
+    var breakdown = document.getElementById('breakdown');
+    function money(n){ return '£' + Math.round(n).toLocaleString('en-GB'); }
+
+    form.querySelectorAll('[data-single]').forEach(function(group){
+      group.querySelectorAll('.opt').forEach(function(opt){
+        opt.addEventListener('click', function(){
+          group.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel'); });
+          opt.classList.add('sel'); opt.querySelector('input').checked = true; recalc();
+        });
+      });
+    });
+    form.querySelectorAll('[data-name="Options"] .opt').forEach(function(opt){
+      opt.addEventListener('click', function(){
+        var input = opt.querySelector('input');
+        input.checked = !input.checked; opt.classList.toggle('sel', input.checked); recalc();
+      });
+    });
+
+    function recalc(){
+      var rows=[], total=0;
+      form.querySelectorAll('[data-single]').forEach(function(group){
+        var sel=group.querySelector('.opt.sel');
+        if(sel){ var p=parseInt(sel.getAttribute('data-price'),10)||0; total+=p;
+          rows.push([group.getAttribute('data-name')+': '+sel.querySelector('.o-name').textContent, p]); }
+      });
+      form.querySelectorAll('[data-name="Options"] .opt.sel').forEach(function(opt){
+        var p=parseInt(opt.getAttribute('data-price'),10)||0; total+=p;
+        rows.push([opt.querySelector('.o-name').textContent, p]);
+      });
+      totalEl.textContent = money(total);
+      breakdown.innerHTML = rows.map(function(r){
+        return '<li><span>'+r[0]+'</span><span>'+(r[1]===0?'included':money(r[1]))+'</span></li>';
+      }).join('');
+    }
+    recalc();
+  })();
+  </script>
+</body>
+</html>
