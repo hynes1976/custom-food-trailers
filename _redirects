@@ -1,11 +1,5 @@
-# Clean-URL aliases (Cloudflare Pages also serves .html at extensionless paths automatically)
-/our-trailers      /our-trailers.html      200
-/build-your-own    /build-your-own.html    200
-/buying-guide      /buying-guide.html      200
-/about             /about.html             200
-/about-us          /about.html             301
-/contact           /contact.html           200
-/privacy           /privacy.html           200
-/terms             /terms.html             200
-# Legacy path from old Webflow site
-/guides/how-to-choose-a-trailer   /buying-guide.html   301
+# Cloudflare Pages serves .html files at extensionless paths automatically
+# (e.g. /our-trailers serves our-trailers.html), so no clean-URL rules are needed.
+# Only keep redirects from OLD Webflow URLs to the new pages:
+/about-us                          /about          301
+/guides/how-to-choose-a-trailer    /buying-guide   301
