@@ -97,7 +97,7 @@
   // If neither is configured, forms still show a thank-you so the page never looks broken.
   var CONFIG = {
     FORMSPREE_ENDPOINT: "https://formspree.io/f/REPLACE_WITH_YOUR_ID",
-    USE_FUNCTION: false,
+    USE_FUNCTION: true,
     FUNCTION_URL: "/api/enquiry"
   };
   var OK_MSG = "Thank you, your enquiry has been received. We'll be in touch shortly.";
