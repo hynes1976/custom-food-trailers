@@ -50,7 +50,7 @@ export async function onRequestPost({ request, env }) {
       headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         from: env.FROM_EMAIL || "website@customfoodtrailers.co.uk",
-        to: [env.BOOKINGS_EMAIL || "andrew@customfoodtrailers.co.uk"],
+        to: (env.BOOKINGS_EMAIL || "andrew@customfoodtrailers.co.uk").split(",").map(function (s) { return s.trim(); }).filter(Boolean),
         reply_to: email,
         subject: `New enquiry — ${name}`,
         html
