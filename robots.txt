@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /privacy
 Disallow: /privacy.html
+Disallow: /terms
 Disallow: /terms.html
 
 Sitemap: https://www.customfoodtrailers.co.uk/sitemap.xml
-# updated
