@@ -45,18 +45,47 @@ export async function onRequestPost({ request, env }) {
       return json({ ok: true, note: "Received (Resend not configured yet)" }, 200, cors);
     }
 
-    const res = await fetch("https://api.resend.com/emails", {
+    const FROM = env.FROM_EMAIL || "website@customfoodtrailers.co.uk";
+    const recipients = (env.BOOKINGS_EMAIL || "andrew@customfoodtrailers.co.uk")
+      .split(",").map(s => s.trim()).filter(Boolean);
+    const primary = recipients[0] || "andrew@customfoodtrailers.co.uk";
+
+    const send = (payload) => fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from: env.FROM_EMAIL || "website@customfoodtrailers.co.uk",
-        to: (env.BOOKINGS_EMAIL || "andrew@customfoodtrailers.co.uk").split(",").map(function (s) { return s.trim(); }).filter(Boolean),
-        reply_to: email,
-        subject: `New enquiry — ${name}`,
-        html
-      })
+      body: JSON.stringify(payload)
+    });
+
+    // 1) Internal notification to the business.
+    const res = await send({
+      from: FROM,
+      to: recipients,
+      reply_to: email,
+      subject: `New enquiry — ${name}`,
+      html
     });
     if (!res.ok) return json({ ok: false, error: "Email send failed" }, 502, cors);
+
+    // 2) Quote (builder) requests: also send the customer a copy of their build.
+    const isQuote = /quote/i.test((fields.enquiry_type || "").toString());
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (isQuote && emailValid) {
+      const custHtml = `<h2 style="color:#103d2a">Thank you for your quote request</h2>
+        <p style="font-family:Arial;color:#333">Hi ${esc(name)}, thanks for designing your trailer with Custom Food Trailers UK. Here is a summary of your build. Our team will be in touch shortly to confirm your formal quote.</p>
+        <table style="border-collapse:collapse;font-family:Arial">${rows}</table>
+        <p style="font-family:Arial;color:#333">Any questions? Call 07826 551 503 or simply reply to this email.</p>
+        <p style="font-family:Arial;color:#888;font-size:12px">Custom Food Trailers UK, Unit 12 Lakeland Food Park, Kendal, Cumbria LA8 8JQ</p>`;
+      try {
+        await send({
+          from: FROM,
+          to: [email],
+          reply_to: primary,
+          subject: "Your Custom Food Trailers quote",
+          html: custHtml
+        });
+      } catch (e) { /* customer copy is best effort; ignore failures */ }
+    }
+
     return json({ ok: true }, 200, cors);
   } catch (e) {
     return json({ ok: false, error: "Server error" }, 500, cors);
