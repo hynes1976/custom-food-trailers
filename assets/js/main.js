@@ -101,11 +101,38 @@
     FUNCTION_URL: "/api/enquiry"
   };
   var OK_MSG = "Thank you, your enquiry has been received. We'll be in touch shortly.";
+  var BUILDER_OK = "Thank you, your quote request has been received. We'll be in touch shortly, and a copy of your build has been sent to your email address.";
   var ERR_MSG = "Sorry, something went wrong. Please call 07826 551 503 or email andrew@customfoodtrailers.co.uk.";
 
   function setStatus(f, msg, ok) {
     var s = f.querySelector(".form-status");
     if (s) { s.textContent = msg; s.className = "form-status " + (ok ? "ok" : "err"); }
+  }
+
+  function showModal(ok, msg) {
+    var prev = document.querySelector(".cft-modal");
+    if (prev) prev.remove();
+    var overlay = document.createElement("div");
+    overlay.className = "cft-modal";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.style.cssText = "position:fixed;inset:0;background:rgba(16,61,42,.55);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px;";
+    var icon = ok
+      ? '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>'
+      : '<span style="color:#fff;font-size:1.6rem;font-weight:700">!</span>';
+    var box = document.createElement("div");
+    box.style.cssText = "background:#fff;max-width:430px;width:100%;border-radius:16px;padding:32px 28px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.3);font-family:inherit";
+    box.innerHTML =
+      '<div style="width:58px;height:58px;border-radius:50%;background:' + (ok ? "#1c6b43" : "#b3261e") + ';display:grid;place-items:center;margin:0 auto 18px">' + icon + "</div>" +
+      '<h3 style="margin:0 0 10px;color:#103d2a;font-size:1.3rem">' + (ok ? "Thank you" : "Something went wrong") + "</h3>" +
+      '<p style="margin:0 0 24px;color:#555;font-size:.96rem;line-height:1.55">' + msg + "</p>" +
+      '<button type="button" class="cft-modal-close" style="background:#1c6b43;color:#fff;border:0;border-radius:999px;padding:12px 30px;font-weight:600;cursor:pointer;font-size:.95rem">Close</button>';
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+    function close() { overlay.remove(); }
+    overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
+    box.querySelector(".cft-modal-close").addEventListener("click", close);
+    document.addEventListener("keydown", function esc(ev) { if (ev.key === "Escape") { close(); document.removeEventListener("keydown", esc); } });
   }
 
   var forms = document.querySelectorAll("form[data-contact]");
@@ -134,8 +161,8 @@
 
       fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
         .then(function (r) { if (!r.ok) throw new Error("bad status"); return r; })
-        .then(function () { setStatus(f, OK_MSG, true); f.reset(); })
-        .catch(function () { setStatus(f, ERR_MSG, false); })
+        .then(function () { var m = f.id === "builderForm" ? BUILDER_OK : OK_MSG; setStatus(f, m, true); showModal(true, m); f.reset(); })
+        .catch(function () { setStatus(f, ERR_MSG, false); showModal(false, ERR_MSG); })
         .finally(function () { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Send"; } });
     });
   });
